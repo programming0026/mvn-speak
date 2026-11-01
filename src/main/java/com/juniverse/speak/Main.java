@@ -16,12 +16,16 @@ import javazoom.jl.player.advanced.AdvancedPlayer;
 import javazoom.jl.player.advanced.PlaybackEvent;
 import javazoom.jl.player.advanced.PlaybackListener;
 
+import java.util.logging.Logger;
+import java.util.logging.Level;
 /**
  * Ejemplo: toma la primera voz disponible de ElevenLabs, convierte un texto en voz, lo guarda como MP3 y lo reproduce.
  *
  * @author linux
  */
 public class Main {
+    private static final Logger LOGGER = AppLogger.get(Main.class);
+
 
     /** La clave se lee de la variable de entorno ELEVENLABS_API_KEY para no escribirla en el código. */
     private static final String API_KEY = System.getenv("ELEVENLABS_API_KEY");
@@ -33,7 +37,7 @@ public class Main {
     public static void main(String[] args) {
         try {
             if (API_KEY == null || API_KEY.isBlank()) {
-                System.err.println("Defina la variable de entorno ELEVENLABS_API_KEY con su clave de ElevenLabs.");
+                LOGGER.severe("Defina la variable de entorno ELEVENLABS_API_KEY con su clave de ElevenLabs.");
                 return;
             }
             Speak speak = new SpeakImpl();
@@ -41,7 +45,7 @@ public class Main {
             Optional<VoicesDTO> voice = voices.getVoices() == null
                     ? Optional.empty() : voices.getVoices().stream().findFirst();
             if (voice.isEmpty()) {
-                System.err.println("La cuenta no tiene voces disponibles.");
+                LOGGER.severe("La cuenta no tiene voces disponibles.");
                 return;
             }
             InputStream input = speak.textToSpeech(API_KEY, voice.get().getVoiceId(), "Hello");
@@ -49,7 +53,7 @@ public class Main {
             saveToFile(audio[0], "output.mp3");
             playAudio(audio[1]);
         } catch (IOException | InterruptedException | JavaLayerException ex) {
-            ex.printStackTrace(System.err);
+            LOGGER.log(Level.SEVERE, ex.getMessage(), ex);
         }
     }
 
@@ -84,12 +88,12 @@ public class Main {
         player.setPlayBackListener(new PlaybackListener() {
             @Override
             public void playbackStarted(PlaybackEvent evt) {
-                System.out.println("Playback started");
+                LOGGER.info("Playback started");
             }
 
             @Override
             public void playbackFinished(PlaybackEvent evt) {
-                System.out.println("Playback finished");
+                LOGGER.info("Playback finished");
             }
         });
 
@@ -112,7 +116,7 @@ public class Main {
                 }
             }
         } catch (IOException ex) {
-            ex.printStackTrace(System.err);
+            LOGGER.log(Level.SEVERE, ex.getMessage(), ex);
         }
     }
 

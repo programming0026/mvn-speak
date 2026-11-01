@@ -97,7 +97,6 @@ public class SpeakImpl implements Speak {
         return textToSpeech(request);
     }
 
-    /** Indica si el código HTTP es 2xx. */
     private static boolean isOk(int status) {
         return status >= 200 && status <= 299;
     }
