@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Una voz disponible en ElevenLabs.
  *
- * @author linux
+ * @author Java Universe
  */
 public class VoicesDTO {
 

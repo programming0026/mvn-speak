@@ -3,7 +3,7 @@ package com.juniverse.speak.dto;
 /**
  * Etiquetas descriptivas de una voz (edad, acento, género, uso).
  *
- * @author linux
+ * @author Java Universe
  */
 public class LabelDTO {
     private String age;

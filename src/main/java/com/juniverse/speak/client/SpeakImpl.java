@@ -15,7 +15,7 @@ import java.time.Duration;
 /**
  * Implementación de {@link Speak} con el cliente HTTP de Java y Gson.
  *
- * @author linux
+ * @author Java Universe
  */
 public class SpeakImpl implements Speak {
 

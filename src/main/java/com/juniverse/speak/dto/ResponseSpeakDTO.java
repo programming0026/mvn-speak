@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Respuesta con la lista de voces disponibles.
  *
- * @author linux
+ * @author Java Universe
  */
 public class ResponseSpeakDTO {
 

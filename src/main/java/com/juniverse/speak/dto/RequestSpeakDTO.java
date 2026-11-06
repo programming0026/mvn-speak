@@ -3,7 +3,7 @@ package com.juniverse.speak.dto;
 /**
  * Petición de texto a voz. La clave y el identificador de voz no se envían en el cuerpo JSON ({@code transient}).
  *
- * @author linux
+ * @author Java Universe
  */
 public class RequestSpeakDTO {
 

@@ -3,7 +3,7 @@ package com.juniverse.speak.dto;
 /**
  * Ajustes de la voz: estabilidad, similitud, estilo y refuerzo de locutor.
  *
- * @author linux
+ * @author Java Universe
  */
 public class VoiceSettingsDTO {
 

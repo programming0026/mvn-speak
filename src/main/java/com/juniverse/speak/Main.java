@@ -21,7 +21,7 @@ import java.util.logging.Level;
 /**
  * Ejemplo: toma la primera voz disponible de ElevenLabs, convierte un texto en voz, lo guarda como MP3 y lo reproduce.
  *
- * @author linux
+ * @author Java Universe
  */
 public class Main {
     private static final Logger LOGGER = AppLogger.get(Main.class);

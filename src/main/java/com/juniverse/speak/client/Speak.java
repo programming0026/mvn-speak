@@ -8,7 +8,7 @@ import java.io.InputStream;
 /**
  * Cliente de la API de síntesis de voz de ElevenLabs.
  *
- * @author linux
+ * @author Java Universe
  */
 public interface Speak {
 
